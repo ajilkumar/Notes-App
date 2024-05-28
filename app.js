@@ -22,7 +22,11 @@ app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res){
-  res.render('index')
+  const locals = {
+    title: 'NodeJS Notes',
+    descrption: 'Free NodeJS Notes App'
+  }
+  res.render('index', locals)
 })
 
 app.listen(port, () => {
