@@ -1,4 +1,4 @@
-require(dotenv).config()
+require('dotenv').config()
 
 //essential packages
 const express = require('express');
@@ -22,7 +22,7 @@ app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res){
-  res.render("index")
+  res.render('index')
 })
 
 app.listen(port, () => {
