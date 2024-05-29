@@ -4,7 +4,10 @@ exports.homepage = async(req, res) => {
     title: 'NodeJS Notes',
     description: "Free NodeJS Notes App"
   }
-  res.render('index', locals)
+  res.render('index', {
+    locals,
+    layout: '../views/layouts/front-page'
+  })
 }
 
 //Get About
