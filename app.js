@@ -14,8 +14,17 @@ const app = express()
 //specify port
 const port = 5000 || process.env.PORT
 
+app.use(session({
+  secret: 'notes app',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI
+  })
+}))
+
 app.use(passport.initialize())
-app.use(express.json())
+app.use(passport.session())
 
 
 app.use(express.urlencoded({extended: true}))

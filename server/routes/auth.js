@@ -49,4 +49,22 @@ router.get(
   })
 );
 
+// Route if something goes wrong
+router.get('/login-failure', (req, res) => {
+  res.send('Something went wrong...');
+});
+
+
+//Presist user data after succesful authentication
+passport.serializeUser(function(user, done) {
+  done(null, user.id)
+})
+
+//Retrieve user data from session
+passport.deserializeUser(function(id, done){
+  User.FindById(id, function (err, user){
+    done(err, user)
+  })
+})
+
 module.exports = router;
