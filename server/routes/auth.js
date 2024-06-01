@@ -34,6 +34,19 @@ passport.use(
   )
 );
 
+// Google Login Route
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
 
+// Retrieve user data
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/login-failure",
+    successRedirect: "/dashboard",
+  })
+);
 
 module.exports = router;
