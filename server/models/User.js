@@ -10,9 +10,21 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  googleId: {
+  firstName: {
     type: String,
     required: true
   },
+  lastName: {
+    type: String,
+    required: true
+  },
+  profileImage: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 })
 module.exports = mongoose.model('User', UserSchema)
