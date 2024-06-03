@@ -21,7 +21,8 @@ app.use(session({
   store: MongoStore.create({
     mongoUrl: process.env.MONGODB_URI
   }),
-  cookie: {maxAg: new Date(Date.now) + (3600000) }
+  // cookie: {maxAg: new Date(Date.now) + (3600000) } 
+  // Date.now() - 30 * 24 * 60 * 60 * 1000  
 }))
 
 app.use(passport.initialize())
