@@ -1,4 +1,8 @@
-//Get HomePage
+const Note = require('../models/Notes')
+const mongoose = require('mongoose');
+
+
+//Get Dashboard
 exports.dashboard = async(req, res) => {
   const locals = {
     title: 'DashBoard',
