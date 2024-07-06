@@ -24,7 +24,7 @@ exports.dashboard = async(req, res) => {
       ])
     .skip(perPage * page - perPage)
     .limit(perPage)
-    .exec(); 
+    .exec();   
 
     const count = await Note.count();
 
@@ -35,7 +35,7 @@ exports.dashboard = async(req, res) => {
       layout: "../views/layouts/dashboard",
       current: page,
       pages: Math.ceil(count / perPage)
-      
+
     });
  
     // Original Code
