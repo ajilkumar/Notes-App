@@ -35,7 +35,7 @@ passport.use(
   )
 );
 
-// Google Login Route
+// Google Login Route  
 router.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
