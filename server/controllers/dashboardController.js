@@ -35,6 +35,7 @@ exports.dashboard = async(req, res) => {
       layout: "../views/layouts/dashboard",
       current: page,
       pages: Math.ceil(count / perPage)
+      
     });
  
     // Original Code
