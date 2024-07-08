@@ -154,6 +154,7 @@ exports.dashboardAddNoteSubmit = async (req, res) => {
 exports.dashboardSearch = async (req, res) => {
   try {
     res.render("dashboard/search", {
+      userName: req.user.firstName,
       searchResults: "",
       layout: "../views/layouts/dashboard",
     });
