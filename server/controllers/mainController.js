@@ -1,20 +1,27 @@
-//Get HomePage
-exports.homepage = async(req, res) => {
+/**
+ * GET /
+ * Homepage 
+*/
+exports.homepage = async (req, res) => {
   const locals = {
-    title: 'NodeJS Notes',
-    description: "Free NodeJS Notes App"
+    title: "NodeJs Notes",
+    description: "Free NodeJS Notes App.",
   }
   res.render('index', {
     locals,
     layout: '../views/layouts/front-page'
-  })
+  });
 }
 
-//Get About
-exports.about = async(req, res) => {
+
+/**
+ * GET /
+ * About 
+*/
+exports.about = async (req, res) => {
   const locals = {
-    title: 'About-NodeJS Notes',
-    description: "Free NodeJS Notes App"
+    title: "About - NodeJs Notes",
+    description: "Free NodeJS Notes App.",
   }
-  res.render('about', locals)
+  res.render('about', locals);
 }

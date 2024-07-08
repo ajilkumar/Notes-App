@@ -19,7 +19,7 @@ exports.dashboard = async (req, res) => {
     // Mongoose "^7.0.0 Update
     const notes = await Note.aggregate([
       { $sort: { updatedAt: -1 } },
-      { $match: { user: mongoose.Types.ObjectId(req.user.id) } },
+      { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
       {
         $project: {
           title: { $substr: ["$title", 0, 30] },
@@ -31,7 +31,7 @@ exports.dashboard = async (req, res) => {
     .limit(perPage)
     .exec(); 
 
-    const count = await Note.count();
+    const count = await Note.countDocuments();
 
     res.render('dashboard/index', {
       userName: req.user.firstName,

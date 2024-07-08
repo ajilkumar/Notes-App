@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router()
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy
-const User = require('../models/User')
+const express = require("express");
+const router = express.Router();
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const User = require("../models/User");
 
 passport.use(
   new GoogleStrategy(
@@ -35,7 +35,7 @@ passport.use(
   )
 );
 
-// Google Login Route  
+// Google Login Route
 router.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
@@ -57,27 +57,29 @@ router.get('/login-failure', (req, res) => {
 
 // Destroy user session
 router.get('/logout', (req, res) => {
-  if(error){
-    console.log(error);
-    res.send('Error logging out')
-  }
-  else{
-    res.redirect('/')
-  }
-})
+  req.session.destroy(error => {
+    if(error) {
+      console.log(error);
+      res.send('Error loggin out');
+    } else {
+      res.redirect('/')
+    }
+  })
+});
 
-//Presist user data after succesful authentication
-passport.serializeUser(function(user, done) {
-  done(null, user.id)
-})
 
-//Retrieve user data from session
-//Original
-// passport.deserializeUser(function(id, done){
-//   User.findById(id, function (err, user){
-//     done(err, user)
-//   })
-// })
+// Presist user data after successful authentication
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+// Retrieve user data from session.
+// Original Code
+// passport.deserializeUser(function (id, done) {
+//   User.findById(id, function (err, user) {
+//     done(err, user);
+//   });
+// });
 
 // New
 passport.deserializeUser(async (id, done) => {
@@ -88,5 +90,8 @@ passport.deserializeUser(async (id, done) => {
     done(err, null);
   }
 });
+
+
+
 
 module.exports = router;
