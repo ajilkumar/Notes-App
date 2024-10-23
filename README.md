@@ -7,6 +7,8 @@
 
 ![frontpage](https://github.com/ajilkumar/Notes-App/blob/main/public/ss/notes%20app.jpg?raw=true)
 
+![homepage](https://github.com/ajilkumar/Notes-App/blob/main/public/ss/notes%20app%20front%20page.jpg?raw=true)
+
 <h2>🛠️ Installation Steps:</h2>
 
 <p>1. To install and run this project - install dependencies using npm and then start your server:</p>
