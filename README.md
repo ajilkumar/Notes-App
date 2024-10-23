@@ -4,7 +4,8 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="C:\Users\91984\Pictures\Screenshots" alt="project-screenshot" width="500" height="500/">
+
+![frontpage](https://github.com/ajilkumar/Notes-App/blob/main/public/ss/notes%20app.jpg?raw=true)
 
 <h2>🛠️ Installation Steps:</h2>
 
